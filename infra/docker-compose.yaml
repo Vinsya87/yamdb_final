@@ -9,8 +9,8 @@ services:
       - ./.env
   
   web:
-    image: yamdb_final:latest
-    build: ../api_yamdb/
+    image: vinsteam/yamdb_final:latest
+    # build: ../api_yamdb/
     restart: always
     volumes:
       - static_value:/app/static/
