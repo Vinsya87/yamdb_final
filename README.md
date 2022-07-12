@@ -2,6 +2,14 @@
 git clone https://github.com/Vinsya87/yamdb_final.git
 ![example workflow](https://github.com/Vinsya87/yamdb_finalactions/workflows/yamdb_workflow.yml/badge.svg)
 
+
+live address #######################
+http://vinsteam.ddns.net/admin/
+http://vinsteam.ddns.net/api/v1/
+http://vinsteam.ddns.net/redoc/
+
+
+###############################
 -Add .env file in folder infra:
 
 ```DB_ENGINE=django.db.backends.postgresql # use postgresql```
