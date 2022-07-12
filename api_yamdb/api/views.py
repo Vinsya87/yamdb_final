@@ -1,29 +1,29 @@
 import uuid
 
 from django.core.mail import send_mail
-from django.shortcuts import get_object_or_404
-from django.db.models import Avg
 from django.db import IntegrityError
+from django.db.models import Avg
+from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, mixins, status, viewsets
+from rest_framework.decorators import action, api_view
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.decorators import api_view, action
 from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-
 from reviews.models import Category, Genre, Title
 from users.models import User
-from api.paginator import CommentPagination
+
 from api.filters import TitleFilter
-from api.permissions import (AuthorAndStaffOrReadOnly,
-                             IsAdminOrReadOnly, OwnerOrAdmins)
-from api.serializers import (CategoriesSerializer,
-                             CommentsSerializer, GenresSerializer,
-                             ReviewsSerializer, SignUpSerializer,
-                             TitlesSerializer, TitlesViewSerializer,
-                             TokenSerializer, UserSerializer, MeSerializer)
+from api.paginator import CommentPagination
+from api.permissions import (AuthorAndStaffOrReadOnly, IsAdminOrReadOnly,
+                             OwnerOrAdmins)
+from api.serializers import (CategoriesSerializer, CommentsSerializer,
+                             GenresSerializer, MeSerializer, ReviewsSerializer,
+                             SignUpSerializer, TitlesSerializer,
+                             TitlesViewSerializer, TokenSerializer,
+                             UserSerializer)
 
 
 @api_view(['POST'])
@@ -86,7 +86,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if request.method == 'GET':
             serializer = MeSerializer(user)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if request.method == 'PATCH':
+        else:
             serializer = MeSerializer(user, data=request.data, partial=True)
             serializer.is_valid(raise_exception=True)
             serializer.save()
@@ -140,8 +140,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         title = get_object_or_404(Title, id=self.kwargs.get('title_id'))
-        new_queryset = title.reviews.all()
-        return new_queryset
+        return title.reviews.all()
 
     def perform_create(self, serializer):
         title = get_object_or_404(Title, id=self.kwargs.get('title_id'))
@@ -159,8 +158,7 @@ class CommentViewSet(viewsets.ModelViewSet):
             review = title.reviews.get(id=self.kwargs.get('review_id'))
         except TypeError:
             TypeError('У произведения нет такого отзыва')
-        queryset = review.comments.all()
-        return queryset
+        return review.comments.all()
 
     def perform_create(self, serializer):
         title = get_object_or_404(Title, id=self.kwargs.get('title_id'))
