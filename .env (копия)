@@ -1,7 +1,7 @@
 DB_ENGINE=django.db.backends.postgresql
 DB_NAME=api_final
 POSTGRES_USER=yatube_post
-POSTGRES_PASSWORD=postqwerty
+POSTGRES_PASSWORD=PostqQqww
 DB_HOST=db
 DB_PORT=5432
 SECRET_KEY=12345
