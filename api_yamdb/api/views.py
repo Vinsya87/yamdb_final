@@ -1,5 +1,14 @@
 import uuid
 
+from api.filters import TitleFilter
+from api.paginator import CommentPagination
+from api.permissions import (AuthorAndStaffOrReadOnly, IsAdminOrReadOnly,
+                             OwnerOrAdmins)
+from api.serializers import (CategoriesSerializer, CommentsSerializer,
+                             GenresSerializer, MeSerializer, ReviewsSerializer,
+                             SignUpSerializer, TitlesSerializer,
+                             TitlesViewSerializer, TokenSerializer,
+                             UserSerializer)
 from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.db.models import Avg
@@ -14,16 +23,6 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Genre, Title
 from users.models import User
-
-from api.filters import TitleFilter
-from api.paginator import CommentPagination
-from api.permissions import (AuthorAndStaffOrReadOnly, IsAdminOrReadOnly,
-                             OwnerOrAdmins)
-from api.serializers import (CategoriesSerializer, CommentsSerializer,
-                             GenresSerializer, MeSerializer, ReviewsSerializer,
-                             SignUpSerializer, TitlesSerializer,
-                             TitlesViewSerializer, TokenSerializer,
-                             UserSerializer)
 
 
 @api_view(['POST'])
