@@ -1,5 +1,6 @@
 Клонировать репозиторий
-git clone https://github.com/Vinsya87/api_yamdb.git
+git clone https://github.com/Vinsya87/yamdb_final.git
+![example workflow](https://github.com/Vinsya87/yamdb_finalactions/workflows/yamdb_workflow.yml/badge.svg)
 
 -Add .env file in folder infra:
 
