@@ -7,6 +7,10 @@ live address #######################
 http://vinsteam.ddns.net/admin/
 http://vinsteam.ddns.net/api/v1/
 http://vinsteam.ddns.net/redoc/
+-----or-----
+http://51.250.100.40/admin/
+http://51.250.100.40/api/v1/
+http://51.250.100.40/redoc/
 
 
 ###############################
