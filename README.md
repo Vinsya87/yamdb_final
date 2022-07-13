@@ -1,6 +1,5 @@
 Клонировать репозиторий
-git clone https://github.com/Vinsya87/yamdb_final.git
-![example workflow](https://github.com/Vinsya87/yamdb_finalactions/workflows/yamdb_workflow.yml/badge.svg)
+[![Django-app workflow](https://github.com/Vinsya87/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?branch=master)](https://github.com/Vinsya87/yamdb_final/actions/workflows/yamdb_workflow.yml)
 
 
 live address #######################
